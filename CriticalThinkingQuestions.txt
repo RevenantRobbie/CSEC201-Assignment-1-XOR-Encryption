@@ -50,7 +50,14 @@
 	Lots of other things that look like global constants such as EXIT_FAILURE are also new but self explanitory
 	ftell is also new. It essentially tells you how far you are from the beginning of a file. The way it is being used is after fseek the EOF so its basicly just finding the file size dynamicly
 
-
+11:
+	A lot of the functionality around input was changed due to the dynamic reallocation and there were more minor adjustments made to a lot of the other components
+	however, I don't think the a whole lot of the core application behavior changed asside from the dynamic allocation of inputs
+	to me, the dynamic allocation seems rather unessecary, absolutely overkill for an issue like this, and possibly presents some if its own issues too
+	If it were up to me, I would have added a simple check to see if inputs were too big and exit the code if it is, not create an entirely new system.
+		The newly introduced problem that I forsee is putting in an absurdly large input that would break malloc or force too much allocated memory.
+	Finally, I'm unsure why chatGPT decided to use messageLen on everything rather than strlen(data).
+		Apparently chatGPT thinks thats important to do
 
 
 	
