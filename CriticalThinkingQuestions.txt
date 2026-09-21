@@ -20,3 +20,9 @@
 	* create a key that is 500 bytes long
 	* create a filename with a size of 500 bytes
 	* Create enter a valid filename that does not end in \n
+5: see successful compile
+6: 
+	error 1) cannot take file input and thus, unable to read from file or write to file.
+		solution: newline character from fgets was carrying over, so I had to add a quick getchar() in there to consume the newline
+
+	

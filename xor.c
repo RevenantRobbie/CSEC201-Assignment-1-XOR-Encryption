@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void xorEncryptDecrypt(char *data, const char *key) {
+void xorEncryptDecrypt(char* data, const char* key) {
     int keyLen = 0;
     while (key[keyLen] != '\0') {
         keyLen++;
@@ -12,8 +12,8 @@ void xorEncryptDecrypt(char *data, const char *key) {
     }
 }
 
-void encrypt(char *filename, char *message, const char *key) {
-    FILE *file = fopen(filename, "wb");
+void encrypt(char* filename, char* message, const char* key) {
+    FILE* file = fopen(filename, "wb");
     if (file == NULL) {
         printf("Error opening file for writing.\n");
         return;
@@ -25,8 +25,8 @@ void encrypt(char *filename, char *message, const char *key) {
     fclose(file);
 }
 
-void decrypt(char *filename, const char *key) {
-    FILE *file = fopen(filename, "rb");
+void decrypt(char* filename, const char* key) {
+    FILE* file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Error opening file for reading.\n");
         return;
@@ -36,7 +36,7 @@ void decrypt(char *filename, const char *key) {
     long fileSize = ftell(file);
     fseek(file, 0, SEEK_SET);
 
-    char *data = (char *)malloc((fileSize + 1) * sizeof(char));
+    char* data = (char*)malloc((fileSize + 1) * sizeof(char));
     if (data == NULL) {
         printf("Memory allocation failed.\n");
         fclose(file);
@@ -61,6 +61,7 @@ int main() {
     char choice;
     printf("Do you want to encrypt or decrypt? (e/d): ");
     scanf(" %c", &choice);
+    getchar();
 
     if (choice == 'e') {
         char filename[100];
@@ -79,7 +80,8 @@ int main() {
         key[strcspn(key, "\n")] = '\0';
 
         encrypt(filename, message, key);
-    } else if (choice == 'd') {
+    }
+    else if (choice == 'd') {
         char filename[100];
         char key[32];
 
@@ -92,7 +94,8 @@ int main() {
         key[strcspn(key, "\n")] = '\0';
 
         decrypt(filename, key);
-    } else {
+    }
+    else {
         printf("Invalid choice.\n");
     }
 
