@@ -16,14 +16,28 @@ def testEdgecase2():
     print(XOR.recvuntil(b": "))
     XOR.sendline(b"d")
     print(XOR.recvuntil(b": "))
-    XOR.sendline(b"edgecase1.txt")
+    XOR.sendline(b"StandardCiphertext.txt")
     print(XOR.recvuntil(b": "))
-    XOR.send(b"Z"*32)
+    XOR.send(b"abc123")
+    print(XOR.clean())
+    XOR.interactive()
+
+def testEdgecase3():
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"d")
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"StandardCiphertext.txt")
+    print(XOR.recvuntil(b": "))
+    XOR.send(b"A"*500)
+    print(XOR.clean())
+    XOR.interactive()
 
 def main():
     # print(XOR.recvuntil(b": "))
     # XOR.interactive()
-    testEdgecase1()
+    # testEdgecase1()
+    # testEdgecase2()
+    testEdgecase3()
 
 if __name__ == "__main__":
     main()

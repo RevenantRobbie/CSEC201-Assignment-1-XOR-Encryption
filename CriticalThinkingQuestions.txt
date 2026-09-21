@@ -33,7 +33,9 @@
 
 8:
 	edgecase test 1 does not write to file if input is greater than 256 bytes.
+	edgecase test 2 does not output a plaintext if input does not contain a newline or null byte
 	
+
 
 
 	
