@@ -31,6 +31,9 @@
 	noticed that the encrpytion program will also encrpyt the newline character at the end of a ciphertext. This isn't nessecarily an error, but it's good to note
 	all other standard test cases past correctly, moving onto edge case test cases
 
+8:
+	edgecase test 1 does not write to file if input is greater than 256 bytes.
+	
 
 
 	
