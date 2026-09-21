@@ -32,12 +32,33 @@ def testEdgecase3():
     print(XOR.clean())
     XOR.interactive()
 
+def testEdgecase4():
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"e")
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"A"*500)
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"A"*5)
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"Z")
+
+def testEdgecase5():
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"e")
+    print(XOR.recvuntil(b": "))
+    XOR.send(b"Edgecase5.txt")
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"A"*5)
+    print(XOR.recvuntil(b": "))
+    XOR.sendline(b"Z")
+
 def main():
     # print(XOR.recvuntil(b": "))
     # XOR.interactive()
     # testEdgecase1()
     # testEdgecase2()
-    testEdgecase3()
+    # testEdgecase4()
+    testEdgecase5()
 
 if __name__ == "__main__":
     main()
