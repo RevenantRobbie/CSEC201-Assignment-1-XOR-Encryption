@@ -59,5 +59,15 @@
 	Finally, I'm unsure why chatGPT decided to use messageLen on everything rather than strlen(data).
 		Apparently chatGPT thinks thats important to do
 
+12: I got grace's repo to compare mine to. 
+	At the initial step,  mine differs from hers in that XOR encryption and decryption was bundled into one function for mine but remains in two functions for her
+	my version also has a lot more strcspn blocks to turn newline characters into null bytes
+	additionally, my version prints the decrypted text while hers outputs it into a new file
 
+	at step 5, our fixes differed too as grace's encryption and decryption functions were broken
+	while mine only had problems accepting inputs
+
+	at the last step, my code has a weirder way of reading arbitrarily large input, while grace's code
+	just throws an error if the input is too large.
+	Additionally, hers creates an encrypted copy of the plaintext file should the plaintext be needed later
 	
