@@ -1,28 +1,36 @@
 1: Review the overview and create a bulleted list of requirements for this program
-	* be able to correctly xor a plaintext with a ciphertext
-	* be able to correctly decrypt an xor ciphertext given the correct key
+	1) be able to correctly xor a plaintext with a ciphertext
+	2) be able to correctly decrypt an xor ciphertext given the correct key
 
 2: Use your answer #1 to create a list of tests
-	* given a simple file with 100 characters and a simple key, test if the program is able to xor correctly
-	* given said ciphertext, test if the same key is able to decrypt the ciphertext successfully
+	1) given a simple ciphertext with 100 characters and a simple key, test if the program is able to xor correctly
+	2) given said ciphertext, test if the same key is able to decrypt the ciphertext successfully
 	
 
 3: Create a bulleted list of 5 requirements for this program that involve edge cases and/or error handling
-	* In the event of recieving an extremely large plaintext, the code does not buffer overflow
-	* In the event of the key not containing a null byte, the code does not read an infinitely large key
-	* In the event of a key that is larger than 32 characters, the code should not read past the 32nd character
-	* In the event of a filename that is larger than 100 characters, the code should not crash or buffer overflow
-	* In the event of filename or key not ending in \n, strcspn does not cause the program to break
+	1) In the event of recieving an extremely large plaintext, the code does not buffer overflow
+	2) In the event of the key not containing a null byte, the code does not read an infinitely large key
+	3) In the event of a key that is larger than 32 characters, the code should not read past the 32nd character
+	4) In the event of a filename that is larger than 100 characters, the code should not crash or buffer overflow
+	5) In the event of filename or key not ending in \n, strcspn does not cause the program to break
 
 4: Use answer #3 to create a list of tests you need to perform to verify the edge cases
-	* create and use a 1000 byte plaintext
-	* create a key that does not end in a null byte 
-	* create a key that is 500 bytes long
-	* create a filename with a size of 500 bytes
-	* Create enter a valid filename that does not end in \n
-5: see successful compile
-6: 
-	error 1) cannot take file input and thus, unable to read from file or write to file.
+	1) create and use a 1000 byte plaintext
+	2) create a key that does not end in a null byte 
+	3) create a key that is 500 bytes long
+	4) create a filename with a size of 500 bytes
+	5) Create enter a valid filename that does not end in \n
+5: see SuccessfulCompile.png
+6:
+	Test 1 failed due to being unable to accept any file input
+	Test 2 failed for the same reason
+	Both tests shared the same fix
+7: 
+	error on non edgecase test 1) cannot take file input and thus, unable to read from file or write to file.
 		solution: newline character from fgets was carrying over, so I had to add a quick getchar() in there to consume the newline
+	noticed that the encrpytion program will also encrpyt the newline character at the end of a ciphertext. This isn't nessecarily an error, but it's good to note
+	all other standard test cases past correctly, moving onto edge case test cases
+
+
 
 	
