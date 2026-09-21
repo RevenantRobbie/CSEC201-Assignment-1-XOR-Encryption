@@ -17,7 +17,7 @@ char *readLine(const char *prompt)
     printf("%s", prompt);
     fflush(stdout); // this is new
 
-    size_t capacity = 128; //size_t is also now
+    size_t capacity = 128; //size_t is also new, also everything is a size of 128 bytes now... that's weird
     size_t length = 0;
 
     char *buffer = malloc(capacity); //huh, malloc is being used, neat
@@ -34,7 +34,7 @@ char *readLine(const char *prompt)
         }
 
         /* Make room for character + '\0'. */
-        if (length + 1 >= capacity) {
+        if (length + 1 >= capacity) { //rolling reallocater to constantly expand the capacity size 
             capacity *= 2;
 
             char *temp = realloc(buffer, capacity); //realloc is also new
